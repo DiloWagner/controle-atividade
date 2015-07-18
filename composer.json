@@ -9,7 +9,6 @@
         "doctrine/doctrine-orm-module"      : "0.*",
         "doctrine/dbal"                     : "2.4.3",
         "jms/serializer"                    : "0.16.0",
-        "sp/jms-serializer-module"          : "0.1.*@dev",
         "zendframework/zend-developer-tools": "dev-master"
     }
 }

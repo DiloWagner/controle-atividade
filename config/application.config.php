@@ -6,7 +6,7 @@ return array(
         'Api',
         'DoctrineModule',
         'DoctrineORMModule',
-        'JMSSerializerModule',
+        #'JMSSerializerModule',
         #'ZendDeveloperTools'
     ),
     'module_listener_options' => array(

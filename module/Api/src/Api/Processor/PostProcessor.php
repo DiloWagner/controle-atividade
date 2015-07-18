@@ -52,7 +52,7 @@ class PostProcessor
             $vars = $e->getResult();
         }
         /** @var AbstractPostProcessor $postProcessor */
-        $postProcessor = $di->get($formatter, []);
+        $postProcessor = $di->get($formatter, array());
         if(!($postProcessor instanceof AbstractPostProcessor)) {
             throw new \Exception('Invalid formatter.');
         }

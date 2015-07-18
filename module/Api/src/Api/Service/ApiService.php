@@ -133,9 +133,9 @@ class ApiService extends AbstractService
     public function findAtividade($id)
     {
         $repository = $this->objectManager->getRepository(Atividade::ENTITY);
-        $cidade = $repository->find($id);
+        $atividade = $repository->find($id);
 
-        return $this->processResult($cidade);
+        return $this->processResult($atividade);
     }
 
     /**
@@ -148,9 +148,9 @@ class ApiService extends AbstractService
         $filter->verify();
 
         $repository = $this->objectManager->getRepository(Atividade::ENTITY);
-        $cidades = $repository->findBy($filter->getFilters());
+        $atividades = $repository->findBy($filter->getFilters());
 
-        return $this->processResult($cidades);
+        return $this->processResult($atividades);
     }
 
     /**

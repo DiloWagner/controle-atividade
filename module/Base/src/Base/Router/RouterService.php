@@ -34,5 +34,4 @@ class RouterService
         $routeMatch = $this->router->match($this->request);
         return $routeMatch->getParam($identify);
     }
-
 } 

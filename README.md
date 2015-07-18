@@ -1,2 +1,2 @@
 # controle-atividade
-API construída para aplicação de Controle de Atividade.
+API REST para um sistema gerenciador de atividades.

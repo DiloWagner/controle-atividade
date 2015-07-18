@@ -28,6 +28,11 @@ php composer.phar install
 **OBS**: Caso utilize o sistema operacional Windows é recomendável a utilização do [git
 bash](https://git-scm.com/downloads).
 
+É possível realizar a criação através do comando:
+```console
+bash exe_sql.bat
+```
+
 ##### Banco de dados
 ------------
 Dentro da pasta **sql** na raiz do projeto, existe o arquivo **exe_sql.bat**, basta executá-lo e automáticamente o banco de dados será criado. OBS: Utilizado para testes o usuário DEFAUT do MySql, user = root, pass = '', caso seja necessário a utilização de senha, altere o arquivo **exe_sql.bat** para: ***mysql -u SEU_USUARIO  -p SUA_SENHA --default-character-set=utf8 < _criabanco.sql***

@@ -30,9 +30,9 @@ class AtividadeForm extends Form
         ) )->setAttributes ( array (
             'class' => 'tool_tip',
             'data-placement' => 'bottom',
-            'placeholder' => 'Título da notícia',
-            'title' => 'Título da notícia',
-            'id' => 'titulo-noticia',
+            'placeholder' => 'Título da atividade',
+            'title' => 'Título da atividade',
+            'id' => 'titulo-atividade',
             'maxlength' => '150'
         ) );
         $this->add ( $titulo );
@@ -41,25 +41,9 @@ class AtividadeForm extends Form
         $descricao->setLabel ( 'Descrição:' )->setLabelAttributes ( array (
             'class' => 'control-label required'
         ) )->setAttributes ( array (
-            'placeholder' => 'Descrição',
+            'placeholder' => 'Descrição da atividade',
             'class' => 'jmce tool_tip'
         ) );
         $this->add ( $descricao );
-    }
-
-    public function init()
-    {var_dump('Chegou');die;
-        parent::__construct('atividade');
-        $this->setAttribute('method', 'post');
-
-        $this->add(array(
-            'type'     => 'App\Form\Fieldset\AtividadeFieldset',
-            'name'     => 'atividade',
-            'hydrator' => 'DoctrineModule\Stdlib\Hydrator\DoctrineObject',
-            'object'   => 'Api\Entity\Atividade',
-            'options' => array(
-                'use_as_base_fieldset' => true
-            )
-        ));
     }
 }

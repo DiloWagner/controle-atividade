@@ -5,9 +5,7 @@ return array(
         'Base',
         'Api',
         'DoctrineModule',
-        'DoctrineORMModule',
-        #'JMSSerializerModule',
-        #'ZendDeveloperTools'
+        'DoctrineORMModule'
     ),
     'module_listener_options' => array(
         'config_glob_paths' => array(

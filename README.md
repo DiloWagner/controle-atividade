@@ -41,10 +41,10 @@ Para a utilização do Zend Framework com o php-5.3 é necessário algumas confi
 ```console
 server {
     listen       80;
-    server_name  controleatividade.com;
+    server_name  meu-servidor.com;
 
     access_log off;
-    error_log /caminho/ate/log/nginx/controleatividade.error.log;
+    error_log /caminho/ate/log/nginx/meu-servidor.error.log;
 
     root /caminho/ate/servidor/controle-atividade/public;
 
@@ -74,7 +74,7 @@ server {
 Exemplo, caso o servidor de aplicação seja o **[apache](http://httpd.apache.org/download.cgi)**:
 ```console
 <VirtualHost *:80>
-     ServerName controleatividade.com;
+     ServerName meu-servidor.com;
      DocumentRoot /caminho/ate/servidor/controle-atividade/public;
      <Directory /caminho/ate/servidor/controle-atividade/public>
          DirectoryIndex index.php

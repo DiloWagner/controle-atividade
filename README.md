@@ -28,14 +28,14 @@ php composer.phar install
 **OBS**: Caso utilize o sistema operacional Windows é recomendável a utilização do [git
 bash](https://git-scm.com/downloads).
 
-É possível realizar a criação através do comando:
-```console
-bash exe_sql.bat
-```
-
 ##### Banco de dados
 ------------
 Dentro da pasta **sql** na raiz do projeto, existe o arquivo **exe_sql.bat**, basta executá-lo e automáticamente o banco de dados será criado. OBS: Utilizado para testes o usuário DEFAUT do MySql, user = root, pass = '', caso seja necessário a utilização de senha, altere o arquivo **exe_sql.bat** para: ***mysql -u SEU_USUARIO  -p SUA_SENHA --default-character-set=utf8 < _criabanco.sql***
+
+Em sistemas UNIX, é possível realizar a criação através do comando:
+```console
+bash exe_sql.bat
+```
 
 A configuração do Doctrine está no arquivo **config/autoload/doctrine.local.php**, caso seja necessário a alteração da senha do banco de dados.
 
@@ -103,15 +103,18 @@ O projeto foi desenvolvido em 3 módulos:
 O módulo **App** contém um CRUD básico para realizar as operações de criar, alterar e excluir as atividades. Também é possível reorganizar as atividades conforme a prioridade escolhida pelo usuário, clicando no link "organize-se", logo abaixo da listagem, o sistema abrirá uma nova janela onde o usuário poderá arrastar e definir qual atividade será exibida primeiro.
 
 Para realizar a consulta na API REST, basta acessar a rota: **http://meu-servidor/api/v1/atividade.json**. É possível acessar e ter a resposta em dois formatos, JSON ou XML:
-**http://meu-servidor/api/v1/atividade.json**
-**http://meu-servidor/api/v1/atividade.xml**
+```console
+http://meu-servidor/api/v1/atividade.json
+http://meu-servidor/api/v1/atividade.xml
+```
 
 Exemplos:
+```console
 GET - **http://meu-servidor/api/v1/atividade.json/1**
 POST - **http://meu-servidor/api/v1/atividade.json** + data
 PUT - **http://meu-servidor/api/v1/atividade.json/1** + data
 DELETE - **http://meu-servidor/api/v1/atividade.json/1**
-
+```
 
 A seguir a resposta das atividades:
 ====================

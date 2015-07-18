@@ -18,9 +18,12 @@ Instalação
 
 ##### Dependências
 ------------
-Após realizar o clone, é necessário baixar as dependências do projeto por meio do **composer**, siga até a pasta raiz do projeto e realize os seguintes comandos no terminal: 
+Após realizar o clone, é necessário baixar as dependências do projeto por meio do **composer**, siga até a pasta raiz do projeto
 ```console
 cd /caminho/ate/servidor/controle-atividade
+```
+e realize os seguintes comandos no terminal: 
+```console
 php composer.phar self-update
 php composer.phar install
 ```

@@ -3,14 +3,23 @@ Controle de Atividades API - v1.0
 
 Introdução
 ------------
-Projeto provê uma API para um sistema de gerenciamento de atividades.
+Projeto provê uma API para sistema de gerenciamento de atividades. O projeto foi desenvolvido com o Zend Framework 2 e Doctrine 2.
 
 
-#### Requirements
+#### Requisitos
 ------------
 * PHP 5.3+
 * [Doctrine 2](http://www.doctrine-project.org)
 * [Zend Framework 2](https://github.com/zendframework/zf2)
+
+#### Instalação
+------------
+
+##### Banco de dados
+========================
+Dentro da pasta **sql** na raiz do projeto, existe o arquivo **exe_sql.bat**, basta executá-lo e automáticamente o banco de dados será criado. OBS: Utilizado para testes o usuário DEFAUT do MySql, user = root, pass = '', caso seja necessário a utilização de senha, altere o arquivo **exe_sql.bat** para: ***mysql -u SEU_USUARIO  -p SUA_SENHA --default-character-set=utf8 < _criabanco.sql***
+
+A configuração do Doctrine está no arquivo **config/autoload/doctrine.local.php**, caso seja necessário a alteração da senha do banco de dados.
 
 
 Resposta das atividades

@@ -35,19 +35,19 @@ if((isset($_SESSION[PATH_LOGGED]) && $_SESSION[PATH_LOGGED]) ||
 
 ### Questão 3:
 ```php
-use DatabaseConnection;
+use DatabaseConnectionInterface;
 
 class MyUserClass
 {
     /**
-     * @var DatabaseConnection;
+     * @var DatabaseConnectionInterface;
      */
     protected $dbconn;
 
     /**
-     * @param DatabaseConnection $databaseConnection
+     * @param DatabaseConnectionInterface $databaseConnection
      */
-    public function __construct(DatabaseConnection $databaseConnection)
+    public function __construct(DatabaseConnectionInterface $databaseConnection)
     {
         $this->dbconn = $databaseConnection;
     }

@@ -8,8 +8,6 @@
         "doctrine/doctrine-module"          : "0.*",
         "doctrine/doctrine-orm-module"      : "0.*",
         "doctrine/dbal"                     : "2.4.3",
-        "zfcampus/zf-content-negotiation"   : "1.0.3",
-        "zfcampus/zf-oauth2"                : "1.0.2",
         "jms/serializer"                    : "0.16.0",
         "sp/jms-serializer-module"          : "0.1.*@dev",
         "zendframework/zend-developer-tools": "dev-master"

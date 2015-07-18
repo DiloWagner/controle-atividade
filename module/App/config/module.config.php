@@ -1,5 +1,5 @@
 <?php
-namespace Aplicacao;
+namespace App;
 
 return array(
     'router' => array(
@@ -9,7 +9,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'App\Controller\Index',
+                        'controller' => 'app.controller.index',
                         'action'     => 'index',
                     ),
                 ),
@@ -19,8 +19,7 @@ return array(
                 'options' => array(
                     'route'    => '/atividade',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'App\Controller',
-                        'controller'    => 'Atividade',
+                        'controller'    => 'app.controller.atividade',
                         'action'        => 'index',
                     ),
                 ),
@@ -33,7 +32,7 @@ return array(
                             'constraints' => array (
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'defaults' => array (
-                                    'controller' => 'Atividade'
+                                    'controller' => 'app.controller.atividade'
                                 )
                             )
                         ),
@@ -43,9 +42,11 @@ return array(
         ),
     ),
     'controllers' => array(
+        'factories' => array(
+            'app.controller.atividade' => 'App\Controller\Factory\AtividadeControllerFactory'
+        ),
         'invokables' => array(
-            'App\Controller\Index'     => 'App\Controller\IndexController',
-            'App\Controller\Atividade' => 'App\Controller\AtividadeController'
+            'app.controller.index'     => 'App\Controller\IndexController'
         ),
     ),
     'view_manager' => array(
@@ -56,7 +57,7 @@ return array(
         'exception_template'       => 'error/index',
         'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'app/atividade/index' => __DIR__ . '/../view/app/atividade/index.phtml',
+            'app/atividade/index'     => __DIR__ . '/../view/app/atividade/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),

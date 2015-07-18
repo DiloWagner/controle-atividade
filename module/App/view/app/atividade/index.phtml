@@ -1,0 +1,83 @@
+<?php $this->headScript()->prependFile($this->basePath() . '/js/atividade-index.js')
+    ->prependFile($this->basePath() . '/js/jquery-ui.js')
+    ->prependFile($this->basePath() . '/js/jquery.dataTables.min.js') ?>
+<div class="ttoolbar">
+    <ul id="mapa">
+        <li class="first"></li>
+        <li class="iten">
+            <a href="<?php echo $this->url('atividade')?>" title="Página Inicial">Página Inicial</a>
+        </li>
+        <li class="separator"></li>
+        <li class="iten">
+            <span title="Lista de Clientes">Lista de Atividades</span>
+        </li>
+    </ul>
+    <div class="buttons_toolbar">
+        <a href="<?php echo $this->url('atividade/default', array('action' => 'new')); ?>" id="new" class="ico_new" title="Novo"></a>
+        <!-- <a id="view" class="ico_view" title="Visualizar"></a> -->
+        <a id="edit" class="ico_edit" title="Editar"></a>
+        <!-- <a id="delete" class="ico_delete" title="Excluir"></a> -->
+        <a id="select_all" class="ico_select_all" title="Selecionar todos"></a>
+        <a id="select_none" class="ico_select_none" title="Selecionar nenhum"></a>
+        <a id="delete" class="ico_delete" title="Deletar"></a>
+    </div>
+</div>
+
+<?php echo $this->alertMessage(); ?>
+
+<table class="datagrid">
+    <thead>
+    <tr>
+        <th width="10px">Cód</th>
+        <th width="20px">Sequência</th>
+        <th width="400px">Titulo</th>
+        <th>Descrição</th>
+    </tr>
+    </thead>
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    /** @var \Api\Entity\Atividade $atividade */
+    foreach ($this->data as $atividade): ?>
+        <tr>
+            <td align="center"><?php echo $atividade->getId(); ?></td>
+            <td align="center"><?php echo $atividade->getIndice(); ?></td>
+            <td><?php echo $atividade->getTitulo(); ?></td>
+            <td><?php echo $atividade->getDescricao(); ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<a href="#myModal" role="button" data-toggle="modal">organize-se</a>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+        <h1 id="myModalLabel">Organize-se</h1>
+        <p>Arrastando os registros você pode priorizar suas atividades.</p>
+    </div>
+    <div class="modal-body">
+        <ul id="sortable">
+            <?php
+            /** @var \Api\Entity\Atividade $at */
+            foreach ($this->data as $at): ?>
+                <li id="<?php echo $at->getId() ?>" class="list-sortable"><?php echo $at->getTitulo();?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button id="save-sortable" class="btn" data-dismiss="modal" aria-hidden="true">Ok</button>
+    </div>
+</div><!-- Fim Modal -->
+
+
+<div class="clear"></div>

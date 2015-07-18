@@ -36,7 +36,8 @@ A configuração do Doctrine está no arquivo **config/autoload/doctrine.local.p
 
 ##### Servidor
 ------------
-Para a utilização do Zend Framework com o php-5.3 é necessário algumas configurações no servidor, caso seja utilizado o **[nginx](http://nginx.org/en/download.html)** como servidor de aplicação. Os testes foram realizados com a seguinte configuração para o Apache:
+Para a utilização do Zend Framework com o php-5.3 é necessário algumas configurações no servidor, caso seja utilizado o **[nginx](http://nginx.org/en/download.html)**:
+
 ```console
 server {
     listen       80;
@@ -94,8 +95,20 @@ O projeto foi desenvolvido em 3 módulos:
 * **App**: É a aplicação em si, todas as rotas, controllers e views referentes ao gerenciamento dos controles de atividades estão neste módulo.
 * **Api**: Este módulo é responsável por disponibilizar a API para o CRUD relacionado às atividades. É neste módulo que está contido o Controller: **module/Api/src/Api/Controller/AtividadeApiRestController**, responsável por disponibilizar os métodos HTTP (GET, PUT, POST, DELETE) para realização de consultas e alterações nos cadastros.
 
+O módulo **App** contém um CRUD básico para realizar as operações de criar, alterar e excluir as atividades. Também é possível reorganizar as atividades conforme a prioridade escolhida pelo usuário, clicando no link "organize-se", logo abaixo da listagem, o sistema abrirá uma nova janela onde o usuário poderá arrastar e definir qual atividade será exibida primeiro.
 
-Resposta das atividades
+Para realizar a consulta na API REST, basta acessar a rota: **http://meu-servidor/api/v1/atividade.json**. É possível acessar e ter a resposta em dois formatos, JSON ou XML:
+**http://meu-servidor/api/v1/atividade.json**
+**http://meu-servidor/api/v1/atividade.xml**
+
+Exemplos:
+GET - **http://meu-servidor/api/v1/atividade.json/1**
+POST - **http://meu-servidor/api/v1/atividade.json** + data
+PUT - **http://meu-servidor/api/v1/atividade.json/1** + data
+DELETE - **http://meu-servidor/api/v1/atividade.json/1**
+
+
+A seguir a resposta das atividades:
 ====================
 
 ### Questão 1:

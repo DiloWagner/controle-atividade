@@ -1,0 +1,1 @@
+Pasta para guardar dados, cache, logs, proxys, etc.

@@ -18,18 +18,7 @@ Instalação
 
 ##### Dependências
 ------------
-Após realizar o clone, é necessário baixar as dependências do projeto por meio do **composer**, siga até a pasta raiz do projeto
-```console
-cd /caminho/ate/servidor/controle-atividade
-```
-e realize os seguintes comandos no terminal: 
-```console
-php composer.phar self-update
-php composer.phar install
-```
-
-**OBS**: Caso utilize o sistema operacional Windows é recomendável a utilização do [git
-bash](https://git-scm.com/downloads).
+Todas as dependências do projeto estão na pasta **vendor/**, (Frameworks e bibliotecas utilizadas).
 
 ##### Banco de dados
 ------------
@@ -39,6 +28,9 @@ Em sistemas UNIX, é possível realizar a criação através do comando:
 ```console
 bash exe_sql.bat
 ```
+**OBS**: Caso utilize o sistema operacional Windows é recomendável a utilização do [git
+bash](https://git-scm.com/downloads).
+
 
 A configuração do Doctrine está no arquivo **config/autoload/doctrine.local.php**, caso seja necessário a alteração da senha do banco de dados.
 

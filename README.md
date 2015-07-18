@@ -13,7 +13,6 @@ Projeto provê uma API para um sistema de gerenciamento de atividades.
 * [Zend Framework 2](https://github.com/zendframework/zf2)
 
 
-
 Resposta das atividades
 ====================
 

@@ -1,6 +1,6 @@
 {
-    "name": "discovery-tecnologia/endereco-api",
-    "description": "Webservice para consulta de endereços",
+    "name": "teste/controle-atividade",
+    "description": "Sistema para gerenciamento e controle de atividade",
     "minimum-stability": "stable",
     "require": {
         "php"                               : ">=5.3.3",

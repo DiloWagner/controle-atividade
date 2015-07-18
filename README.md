@@ -70,7 +70,7 @@ server {
     }
 }
 ```
-Exemplo, caso o servidor de aplicação seja o **[apache]**(http://httpd.apache.org/download.cgi):
+Exemplo, caso o servidor de aplicação seja o **[apache](http://httpd.apache.org/download.cgi)**:
 ```console
 <VirtualHost *:80>
      ServerName controleatividade.com;

@@ -5,7 +5,7 @@ use Api\Controller\AtividadeApiRestController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AtivadadeApiRestControllerFactory implements FactoryInterface
+class AtividadeApiRestControllerFactory implements FactoryInterface
 {
     /**
      * Create service

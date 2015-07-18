@@ -28,6 +28,22 @@ class AtividadeController extends AbstractCrudController
     }
 
     /**
+     * @method indexAction()
+     * Responsável por fazer listagem de dados.
+     * @see \Zend\Mvc\Controller\AbstractActionController::indexAction()
+     * @access public
+     */
+    public function indexAction()
+    {
+        try {
+            $list = $this->service->findBy(array(), array('indice' => 'ASC'));
+            return new ViewModel(array('data' => $list));
+        } catch( \Exception $e ) {
+            $this->flashMessenger()->addErrorMessage(FlashMessages::ERRO_INESPERADO);
+        }
+    }
+
+    /**
      * @method newAction()
      * Criar um registro
      * @return \Zend\View\Model\ViewModel
@@ -60,39 +76,12 @@ class AtividadeController extends AbstractCrudController
      * Método JSON que popula as cidades baseado no estado selecionado no combo
      * @return \Zend\View\Model\JsonModel
      */
-    public function reorganizeAction() {
-
+    public function reorganizeAction()
+    {
         $ids = $this->params()->fromQuery('ids', 0);
         $ids = explode('-', $ids);
-
-        $i = 1;
-        $response = array();
-
-        $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-        $repository = $em->getRepository( $this->entity );
-
-        foreach ( $ids as $id ) {
-
-            $entity = $repository->find( $id );
-
-            $atividade = $entity->toArray();
-
-            $atividade['indice'] = $i;
-
-            $service = $this->getServiceLocator()->get( $this->service );
-
-            if ( $service->save( $atividade ) ) {
-                $response['sucess'] = true;
-            } else {
-                $response['sucess'] = false;
-                break;
-            }
-
-            $i++;
-
-        }
-
-        $jsonModel = new JsonModel( $response );
+        $response = $this->service->organize($ids);
+        $jsonModel = new JsonModel($response);
         $jsonModel->setTerminal(true);
 
         return $jsonModel;

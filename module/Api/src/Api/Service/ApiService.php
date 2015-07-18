@@ -5,11 +5,13 @@
 namespace Api\Service;
 
 use Api\Entity\Atividade;
+use Api\Exception\ParamNotFoundException;
 use Api\Repository\AtividadeRepository;
 use Base\Service\AbstractService;
 use Doctrine\Common\Persistence\ObjectManager;
 use Api\Collection\DataCollection;
 use Api\Processor\Filter;
+use Zend\Stdlib\Hydrator\ClassMethods;
 
 class ApiService extends AbstractService
 {
@@ -20,6 +22,50 @@ class ApiService extends AbstractService
     {
         $repository = $objectManager->getRepository(Atividade::ENTITY);
         parent::__construct($objectManager, $repository);
+    }
+
+    /**
+     * @param array $data
+     * @return Atividade
+     * @throws \Exception
+     */
+    public function create(array $data)
+    {
+        try {
+            $atividade = new Atividade();
+            $hydrator = new ClassMethods();
+            $hydrator->hydrate($data, $atividade);
+            $entity = $this->save($atividade);
+
+            return $this->processResult($entity);
+
+        } catch(\Exception $e) {
+            throw $e;
+        }
+    }
+
+    /**
+     * @param $id
+     * @param $data
+     * @return Atividade
+     * @throws \Exception
+     */
+    public function update($id, $data)
+    {
+        try {
+            $atividade = $this->find($id);
+            if(! ($atividade instanceof Atividade)) {
+                throw new ParamNotFoundException;
+            }
+            $hydrator = new ClassMethods();
+            $hydrator->hydrate($data, $atividade);
+            $entity = $this->save($atividade);
+
+            return $this->processResult($entity);
+
+        } catch(\Exception $e) {
+            throw $e;
+        }
     }
 
     /**
@@ -56,10 +102,35 @@ class ApiService extends AbstractService
     }
 
     /**
+     * @param array $ids
+     * @return array
+     * @throws \Exception
+     */
+    public function organize(array $ids)
+    {
+        $response = array();
+        $repository = $this->repository;
+        $i = 1;
+        foreach ( $ids as $id ) {
+            /** @var Atividade $entity */
+            $entity = $repository->find($id);
+            $entity->setIndice($i);
+            if($this->save($entity)) {
+                $response['sucess'] = true;
+            } else {
+                $response['sucess'] = false;
+                break;
+            }
+            $i++;
+        }
+        return $response;
+    }
+
+    /**
      * @param $id
      * @return Atividade
      */
-    public function findCidade($id)
+    public function findAtividade($id)
     {
         $repository = $this->objectManager->getRepository(Atividade::ENTITY);
         $cidade = $repository->find($id);
@@ -71,7 +142,7 @@ class ApiService extends AbstractService
      * @param array $params
      * @return array
      */
-    public function findCidades($params)
+    public function findAtividades($params)
     {
         $filter = new Filter(Atividade::ENTITY, $params);
         $filter->verify();

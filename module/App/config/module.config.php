@@ -4,16 +4,6 @@ namespace App;
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/',
-                    'defaults' => array(
-                        'controller' => 'app.controller.index',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
             'atividade' => array(
                 'type'    => 'Literal',
                 'options' => array(

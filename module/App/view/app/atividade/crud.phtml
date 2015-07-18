@@ -1,9 +1,7 @@
 <?php $this->headScript()->prependFile($this->basePath() . '/js/atividade-crud.js')
-    ->prependFile($this->basePath() . '/js/jquery.validate.js') ?>
-
+                         ->prependFile($this->basePath() . '/js/jquery.validate.js') ?>
 <?php
 $form = $this->form;
-$fieldset = $form;
 $form->setAttribute(
     'action', $this->url('atividade/default',
     array('action' => $this->action,'id' => $this->id)
@@ -16,7 +14,7 @@ $this->form->prepare();
     <ul id="mapa">
         <li class="first"></li>
         <li class="iten">
-            <a href="<?php echo $this->url('home')?>" title="Página Inicial">Página Inicial</a>
+            <a href="<?php echo $this->url('atividade')?>" title="Página Inicial">Página Inicial</a>
         </li>
         <li class="separator"></li>
         <li class="iten">
@@ -46,28 +44,23 @@ $this->form->prepare();
         </div>
         <div class="box_content">
 
-            <?php echo $this->formHidden($fieldset->get('id')) ?>
-            <?php echo $this->formHidden($fieldset->get('indice')) ?>
+            <?php echo $this->formHidden($form->get('id')) ?>
+            <?php echo $this->formHidden($form->get('indice')) ?>
 
             <div class="control-group">
-                <?php echo $this->formlabel($fieldset->get('titulo')) ?>
+                <?php echo $this->formlabel($form->get('titulo')) ?>
                 <div class="controls">
-                    <?php echo $this->formInput($fieldset->get('titulo')) ?>
-                    <?php echo $this->formElementErrors($fieldset->get('titulo')); ?>
+                    <?php echo $this->formInput($form->get('titulo')) ?>
+                    <?php echo $this->formElementErrors($form->get('titulo')); ?>
                 </div>
             </div>
 
             <div class="control-group">
-                <?php echo $this->formlabel($fieldset->get('descricao')) ?>
+                <?php echo $this->formlabel($form->get('descricao')) ?>
                 <div class="controls">
-                    <?php echo $this->formTextarea($fieldset->get('descricao')) ?>
-                    <?php echo $this->formElementErrors($fieldset->get('descricao')); ?>
+                    <?php echo $this->formTextarea($form->get('descricao')) ?>
+                    <?php echo $this->formElementErrors($form->get('descricao')); ?>
                 </div>
-            </div>
-
-            <div class="control-group success">
-                <label class="control-label required" for="titulo-noticia" aria-required="true">Título: </label>            <div class="controls">
-                    <input type="text" name="noticia[titulo]" class="tool_tip valid" data-placement="bottom" placeholder="Título da notícia" id="titulo-noticia" maxlength="150" value="Dia dos animais" data-original-title="Título da notícia" aria-required="true" aria-invalid="false"><label for="titulo-noticia" class="error valid" style="display: block;">OK!</label>                            </div>
             </div>
 
         </div>

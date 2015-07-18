@@ -26,18 +26,18 @@ return array(
             'api-endereco' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route' => '/api/address/v1',
+                    'route' => '/api/v1',
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
                     'cidade' => array(
                         'type' => 'Segment',
                         'options' => array(
-                            'route' => '/cidadearray(.:formatter)array(/:id)',
+                            'route' => '/atividade[.:formatter][/:id]',
                             'constraints' => array(
-                                'action'    => 'array(a-zA-Z)array(a-zA-Z0-9_-)*',
-                                'formatter' => 'array(a-zA-Z)+',
-                                'id'        => 'array(a-zA-Z0-9_-)*'
+                                'action'    => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'formatter' => '[a-zA-Z]+',
+                                'id'        => '[a-zA-Z0-9_-]*'
                             ),
                             'defaults' => array(
                                 'controller' => 'api.atividade.rest.controller'

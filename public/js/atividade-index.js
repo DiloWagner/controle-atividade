@@ -45,7 +45,7 @@ $(document).ready(function() {
         "aaSorting": [[ 1, "asc" ]],
         "aoColumnDefs": [
             { "bSearchable": false, "bVisible": true, "aTargets": [ 0 ] },
-            { "bSearchable": false, "bVisible": true, "aTargets": [ 1 ] },
+            { "bSearchable": false, "bVisible": false, "aTargets": [ 1 ] },
             { "bSearchable": true, "bVisible": true, "aTargets": [ 2 ] },
             { "bSearchable": true, "bVisible": true, "aTargets": [ 3 ] }
         ]

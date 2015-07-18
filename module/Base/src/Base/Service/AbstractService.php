@@ -50,11 +50,14 @@ abstract class AbstractService
      *
      * @method findBy( array $criteria )
      * @param array $criteria
+     * @param array|null $orderBy
+     * @param null $limit
+     * @param null $offset
      * @return object
      */
-    public function findBy(array $criteria)
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
-        return $this->repository->findBy( $criteria );
+        return $this->repository->findBy($criteria, $orderBy, $limit, $offset);
     }
 
     /**

@@ -57,7 +57,7 @@ class MyUserClass
      */
     public function getUserList()
     {
-        return $this->dbconn->query('select name from user order by name asc');
+        return $this->dbconn->query('select name from user order by id asc');
     }
 }
 ```

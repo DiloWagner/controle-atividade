@@ -86,6 +86,7 @@ Exemplo, caso o servidor de aplicação seja o **[apache](http://httpd.apache.or
 ```
 Documentação do [ZF 2 - config](http://framework.zend.com/manual/current/en/user-guide/skeleton-application.html)
 
+Após a configuração do servidor basta acessar a URL: **http://meu-servidor/atividade**
 
 
 Projeto
